@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
- <link rel="icon" type="image/x-icon" href="\img\lr-png.ico">
+    <link rel="icon" type="image/x-icon" href="\img\lr-png.ico">
 
     <!-- Or for PNG format -->
     <link rel="icon" type="image/png" href="/favicon.png">
@@ -54,8 +54,13 @@
                 </ul>
                 <ul class="header-links pull-right">
                     <li><a href="#"><i class="fa fa-dollar"></i> KES</a></li>
-                    <li><a href="#"><i class="fa fa-user-o"></i> My Account</a></li>
+                    @guest
+                        <li><a href="{{ route('login') }}"><i class="fa fa-user-o"></i> My Account</a></li>
+                    @else
+                        <li><a href="{{ route('dashboard') }}"><i class="fa fa-user-o"></i> My Dashboard</a></li>
+                    @endguest
                 </ul>
+
             </div>
         </div>
         <!-- /TOP HEADER -->
@@ -1071,73 +1076,7 @@
     </div>
     <!-- /NEWSLETTER -->
 
-    <!-- FOOTER -->
-    <footer id="footer">
-        <!-- top footer -->
-        <div class="section">
-            <!-- container -->
-            <div class="container">
-                <!-- row -->
-                <div class="row">
-                    <div class="col-md-3 col-xs-6">
-                        <div class="footer">
-                            <h3 class="footer-title">About Us</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                incididunt ut.</p>
-                            <ul class="footer-links">
-                                <li><a href="#"><i class="fa fa-map-marker"></i>Nairobi Kenya</a></li>
-                                <li><a href="#"><i class="fa fa-phone"></i>+254 706 378 245</a></li>
-                                <li><a href="#"><i class="fa fa-envelope-o"></i>Info@lrafford.com</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 col-xs-6">
-                        <div class="footer">
-                            <h3 class="footer-title">Categories</h3>
-                            <ul class="footer-links">
-                                <li><a href="#">Hot deals</a></li>
-                                <li><a href="#">Laptops</a></li>
-                                <li><a href="#">Smartphones</a></li>
-                                <li><a href="#">Cameras</a></li>
-                                <li><a href="#">Accessories</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="clearfix visible-xs"></div>
-
-                    <div class="col-md-3 col-xs-6">
-                        <div class="footer">
-                            <h3 class="footer-title">Information</h3>
-                            <ul class="footer-links">
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">Contact Us</a></li>
-                                <li><a href="#">Privacy Policy</a></li>
-                                <li><a href="#">Orders and Returns</a></li>
-                                <li><a href="#">Terms & Conditions</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 col-xs-6">
-                        <div class="footer">
-                            <h3 class="footer-title">Service</h3>
-                            <ul class="footer-links">
-                                <li><a href="#">My Account</a></li>
-                                <li><a href="#">View Cart</a></li>
-                                <li><a href="#">Wishlist</a></li>
-                                <li><a href="#">Track My Order</a></li>
-                                <li><a href="#">Help</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!-- /row -->
-            </div>
-            <!-- /container -->
-        </div>
-        <!-- /top footer -->
+   @include('layouts.footer')
 
         <!-- Bottom Footer -->
         <div id="bottom-footer" class="section">
