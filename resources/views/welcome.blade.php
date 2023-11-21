@@ -57,7 +57,7 @@
                     @guest
                         <li><a href="{{ route('login') }}"><i class="fa fa-user-o"></i> My Account</a></li>
                     @else
-                        <li><a href="{{ route('dashboard') }}"><i class="fa fa-user-o"></i> My Dashboard</a></li>
+                        <li><a href="{{ route('home') }}"><i class="fa fa-user-o"></i> My Dashboard</a></li>
                     @endguest
                 </ul>
 
@@ -1076,41 +1076,41 @@
     </div>
     <!-- /NEWSLETTER -->
 
-   @include('layouts.footer')
+    @include('layouts.footer')
 
-        <!-- Bottom Footer -->
-        <div id="bottom-footer" class="section">
-            <div class="container">
-                <div class="row">
-                    <!-- Payment Icons -->
-                    <div class="col-md-6 text-center">
-                        <ul class="footer-payments">
-                            <li><a href="#"><i class="fa fa-cc-visa"></i></a></li>
-                            <li><a href="#"><i class="fa fa-credit-card"></i></a></li>
-                            <li><a href="#"><i class="fa fa-cc-paypal"></i></a></li>
-                            <li><a href="#"><i class="fa fa-cc-mastercard"></i></a></li>
-                            <li><a href="#"><i class="fa fa-cc-discover"></i></a></li>
-                            <li><a href="#"><i class="fa fa-cc-amex"></i></a></li>
-                        </ul>
-                    </div>
-
-                    <!-- Copyright Information -->
-                    <div class="col-md-6 text-center">
-                        <span class="copyright">
-                            &copy;
-                            <script>
-                                document.write(new Date().getFullYear());
-                            </script> LrAfford. All rights reserved.
-                            Developed by <a href="https://jrmhd.github.io/a-web-portfolio/" target="_blank">JRMHD
-                                Technologies</a>
-                        </span>
-                    </div>
-
-
+    <!-- Bottom Footer -->
+    <div id="bottom-footer" class="section">
+        <div class="container">
+            <div class="row">
+                <!-- Payment Icons -->
+                <div class="col-md-6 text-center">
+                    <ul class="footer-payments">
+                        <li><a href="#"><i class="fa fa-cc-visa"></i></a></li>
+                        <li><a href="#"><i class="fa fa-credit-card"></i></a></li>
+                        <li><a href="#"><i class="fa fa-cc-paypal"></i></a></li>
+                        <li><a href="#"><i class="fa fa-cc-mastercard"></i></a></li>
+                        <li><a href="#"><i class="fa fa-cc-discover"></i></a></li>
+                        <li><a href="#"><i class="fa fa-cc-amex"></i></a></li>
+                    </ul>
                 </div>
+
+                <!-- Copyright Information -->
+                <div class="col-md-6 text-center">
+                    <span class="copyright">
+                        &copy;
+                        <script>
+                            document.write(new Date().getFullYear());
+                        </script> LrAfford. All rights reserved.
+                        Developed by <a href="https://jrmhd.github.io/a-web-portfolio/" target="_blank">JRMHD
+                            Technologies</a>
+                    </span>
+                </div>
+
+
             </div>
         </div>
-        <!-- /Bottom Footer -->
+    </div>
+    <!-- /Bottom Footer -->
 
     </footer>
     <!-- /FOOTER -->
