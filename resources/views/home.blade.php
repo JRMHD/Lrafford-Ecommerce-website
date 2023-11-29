@@ -88,6 +88,13 @@
                 <div class="card">
                     <div class="card-header">
                         {{ __('Dashboard') }}
+                        <a href="{{ route('logout') }}" class="logout-btn"
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
                     </div>
 
                     <div class="card-body">
@@ -101,18 +108,73 @@
                             Welcome back, <span class="user-name">{{ Auth::user()->name }}</span>!
                         </p>
 
-                        <a href="{{ route('logout') }}" class="logout-btn"
-                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
-                        </a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
+                        <!-- Button to list products (show the modal) -->
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#listProductModal">
+                            List Product
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Include the modals for listing and deleting products -->
+    <!-- Modal for listing products -->
+    <div class="modal fade" id="listProductModal" tabindex="-1" aria-labelledby="listProductModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="listProductModalLabel">List Product</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Your listing product form goes here -->
+                    <form enctype="multipart/form-data">
+                        @csrf
+                        <div class="mb-3">
+                            <label for="category" class="form-label">Category</label>
+                            <select class="form-select" id="category" name="category" required>
+                                <option value="Laptops">Laptops</option>
+                                <option value="Smartphones">Smartphones</option>
+                                <option value="Cameras">Cameras</option>
+                                <option value="Accessories">Accessories</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="productName" class="form-label">Product Name</label>
+                            <input type="text" class="form-control" id="productName" name="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="price" class="form-label">Price</label>
+                            <input type="number" class="form-control" id="price" name="price" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="productDescription" class="form-label">Product Description</label>
+                            <textarea class="form-control" id="productDescription" name="description" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="images" class="form-label">Images (Up to 5)</label>
+                            <input type="file" class="form-control" id="images" name="images[]" multiple
+                                accept="image/*">
+                        </div>
+                        <div class="mb-3">
+                            <label for="video" class="form-label">Video (Optional)</label>
+                            <input type="file" class="form-control" id="video" name="video" accept="video/*">
+                        </div>
+                        <button type="submit" class="btn btn-primary">List Product</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    </div>
+
+
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
