@@ -254,7 +254,16 @@
     </div>
     <!-- /SECTION -->
 
-    <!-- SECTION -->
+
+
+
+
+
+
+
+
+
+    {{-- <!-- SECTION -->
     <div class="section">
         <!-- container -->
         <div class="container">
@@ -1042,7 +1051,7 @@
         </div>
         <!-- /container -->
     </div>
-    <!-- /SECTION -->
+    <!-- /SECTION --> --}}
 
     <!-- NEWSLETTER -->
     <div id="newsletter" class="section">

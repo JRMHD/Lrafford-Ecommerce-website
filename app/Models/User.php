@@ -48,5 +48,8 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-   
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
 }

@@ -113,6 +113,18 @@
                             data-bs-target="#listProductModal">
                             List Product
                         </button>
+
+                        <!-- Display user's listed products -->
+                        <div class="mt-3">
+                            <h5>Your Listed Products</h5>
+                            @foreach ($user->products as $product)
+                                <!-- Display each product here -->
+                                <div class="mb-2">
+                                    <strong>{{ $product->name }}</strong> - {{ $product->category }} - KES.
+                                    {{ $product->price }}
+                                </div>
+                            @endforeach
+                        </div>
                     </div>
                 </div>
             </div>
@@ -131,7 +143,7 @@
                 </div>
                 <div class="modal-body">
                     <!-- Your listing product form goes here -->
-                    <form enctype="multipart/form-data">
+                    <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
                             <label for="category" class="form-label">Category</label>
@@ -157,8 +169,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="images" class="form-label">Images (Up to 5)</label>
-                            <input type="file" class="form-control" id="images" name="images[]" multiple
-                                accept="image/*">
+                            <input type="file" class="form-control" id="images" name="images[]" multiple accept="image/*">
                         </div>
                         <div class="mb-3">
                             <label for="video" class="form-label">Video (Optional)</label>
@@ -170,11 +181,6 @@
             </div>
         </div>
     </div>
-
-    </div>
-    </div>
-
-
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

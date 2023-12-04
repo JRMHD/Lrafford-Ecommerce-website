@@ -3,9 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\ProductController;
 
 
-
+Route::get('/home', [ProductController::class, 'index'])->name('home');
+Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
+Route::post('/products', [ProductController::class, 'store'])->name('products.store');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
 
